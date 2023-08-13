@@ -30,6 +30,7 @@ struct ContentView: View {
                             VStack(alignment: .leading) {
                                 Text(book.title ?? "Unknown Title")
                                     .font(.headline)
+                                    .foregroundColor(book.rating == 1 ? .red : .primary)
                                 
                                 Text(book.author ?? "Unknown Author")
                                     .foregroundColor(.secondary)
@@ -64,7 +65,7 @@ struct ContentView: View {
             moc.delete(book)
         }
         
-        try? moc.save()
+//        try? moc.save() // uncomment for permanent save
     }
 }
 
